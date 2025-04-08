@@ -1,0 +1,16 @@
+CREATE TABLE books (
+    book_id SERIAL PRIMARY KEY,
+    key VARCHAR(100) UNIQUE NOT NULL,
+    title VARCHAR(500) NOT NULL,
+    author VARCHAR(300) NOT NULL,
+    cover_id INTEGER,
+    year INTEGER
+);
+
+CREATE TABLE book_reviews (
+    review_id SERIAL PRIMARY KEY,
+    book_id INTEGER REFERENCES books(book_id),
+    review_text TEXT NOT NULL,
+    rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+    review_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

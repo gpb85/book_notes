@@ -1,0 +1,176 @@
+/* Βασικά Στυλ για τη σελίδα */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header,
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+}
+
+h1,
+h3,
+h4 {
+  font-weight: normal;
+}
+
+#empty-message {
+  text-align: center;
+  font-size: 1.5em;
+  color: #888;
+  margin-top: 50px;
+}
+
+/* Στυλ για το σορτ */
+.sort {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.sort p {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+#sort-option {
+  padding: 10px;
+  font-size: 1em;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #444;
+}
+
+/* Στυλ για τα βιβλία */
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.book-info {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  width: 250px;
+  text-align: center;
+  border-radius: 5px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.book-info:hover {
+  transform: scale(1.05);
+}
+
+.book-info h3,
+.book-info h4 {
+  margin: 10px 0;
+}
+
+.book-info p {
+  font-size: 1em;
+  color: #666;
+}
+
+.book-info .review {
+  margin-top: 15px;
+}
+
+.book-info .rating {
+  font-weight: bold;
+  color: #f39c12;
+}
+
+.book-info .review-date {
+  font-size: 0.8em;
+  color: #bbb;
+}
+
+/* Στυλ για την εικόνα */
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .books {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* add book */
+
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+}
+
+.book-details {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.book-cover {
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.book-meta p {
+  margin: 0.25rem 0;
+}
+
+.review-form .form-group {
+  margin-bottom: 1rem;
+}
+
+.review-form textarea,
+.review-form input {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.review-form .btn {
+  padding: 0.6rem 1.2rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.review-form .btn:hover {
+  background-color: #45a049;
+}
+
+.back-link {
+  margin-top: 1.5rem;
+}

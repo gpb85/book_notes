@@ -1,0 +1,78 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+  <h2><%= mode === 'update' ? 'Update Review' : 'Add New Book & Review' %></h2>
+
+  <div class="book-details">
+    <% if (cover && cover !== '0') { %>
+    <img
+      src="https://covers.openlibrary.org/b/id/<%= cover %>-L.jpg"
+      alt="Cover image"
+      class="book-cover"
+    />
+    <% } %>
+
+    <div class="book-meta">
+      <p><strong>Title:</strong> <%= title %></p>
+      <p><strong>Author:</strong> <%= author %></p>
+      <p><strong>Year:</strong> <%= year %></p>
+    </div>
+  </div>
+
+  <form
+    method="POST"
+    action="<%= mode === 'update' ? '/updateReview' : '/addBook' %>"
+    class="review-form"
+  >
+    <% if (bookId) { %>
+    <input type="hidden" name="bookId" value="<%= bookId %>" />
+    <% } %>
+    <input type="hidden" name="key" value="<%= key %>" />
+    <input type="hidden" name="title" value="<%= title %>" />
+    <input type="hidden" name="author" value="<%= author %>" />
+    <input type="hidden" name="cover" value="<%= cover %>" />
+    <input type="hidden" name="year" value="<%= year %>" />
+
+    <div class="form-group">
+      <label for="review_text">Review:</label>
+      <textarea
+        name="review_text"
+        id="review_text"
+        required
+        placeholder="Write your review..."
+        rows="5"
+      >
+<%= review_text %></textarea
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="rating">Rating (1 to 5):</label>
+      <input
+        type="number"
+        name="rating"
+        id="rating"
+        min="1"
+        max="5"
+        required
+        value="<%= rating %>"
+      />
+    </div>
+
+    <button type="submit" class="btn">
+      <%= mode === 'update' ? 'Update Review' : 'Add Book & Review' %>
+      
+    </button>
+    <% if (mode === 'update') { %>
+      <button type="submit" name="action" value="delete" class="btn delete">
+        Delete
+      </button>
+    <% } %>
+  </form>
+
+  <div class="back-link">
+    <a href="/">← Back to Home</a>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
