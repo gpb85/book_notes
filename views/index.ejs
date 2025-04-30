@@ -14,59 +14,23 @@
 
 <div class="books background-cover">
   <% if ( locals.data.length > 0) { %>
-   <%locals.data.forEach((book) => { %> 
-   <% if (book.cover_id === 0) { %>
-  <div class="book-info">
-    <h3><%= book.title %></h3>
-    <h4><%= book.author %></h4>
-    <p><strong><%= book.year %></strong></p>
-    <p><%= book.review_text %></p>
-  </div>
+    <% locals.data.forEach((book) => { %> 
+      <a href="/book?key=<%= book.key %>&title=<%= book.title %>&author=<%= book.author %>&cover=<%= book.cover_id %>&year=<%= book.year %>"><div class="book-info">
+        <h3><%= book.title %></h3>
+        <h4><%= book.author %></h4>
+        <p><strong><%= book.year %></strong></p>
+        <p><%= book.review_text %></p>
+        
+      </div>
+    </a>
+    <% }) %>
   <% } else { %>
-  <img
-    src="https://covers.openlibrary.org/b/id/<%= book.cover_id %>-L.jpg"
-    alt="cover photo"
-  />
-  <div class="book-info full">
-    <h3><%= book.title %></h3>
-    <h4><%= book.author %></h4>
-    <p><strong><%= book.year %></strong></p>
-    <div class="review">
-      <p><%= book.review_text %></p>
-      <div class="rating"><%= book.rating %></div>
-      <div class="review-date"><%= book.review_date %></div>
-    </div>
-  </div>
-  <% } %> <% }) %> <% } else { %>
-  <div id="empty-message"><%= noBooksMessage %></div>
+    <div id="empty-message"><%= noBookMessage %></div>
   <% } %>
 </div>
 
+</main>
 
-<div class="modal-book">
-  <form action="/updateReview">
-    <input
-      type="hidden"
-      name="bookId"
-      id="bookId"
-      value="<%= locals.book_id %>"
-    >
-    <input type="hidden" name="key" id="key" value="<%= locals.key %>" />
-    <input
-      type="hidden"
-      name="title"
-      id="title"
-      value="<%= locals.title %>"
-    />
-    <input
-      type="hidden"
-      name="author"
-      id="author"
-      value="<%= locals.cover %>"
-    />
-    <input type="hidden" name="year" id="year" value="<%= locals.year %>" />
-    
-  </form>
-</div>
+
 
 <%- include("partials/footer.ejs") %>
